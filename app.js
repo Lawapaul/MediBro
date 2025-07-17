@@ -27,6 +27,7 @@ app.use(sesssionConfig);
 
 
 app.get("/login",(req,res)=>{
+    req.session.abc= "Sign Up";
     res.render("./authPages/login.ejs",{title: "Login",style: "./LoginStyles/style.css"});
 })
 app.get("/signup",(req,res)=>{
