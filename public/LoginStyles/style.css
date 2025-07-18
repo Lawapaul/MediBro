@@ -44,3 +44,25 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
 }
+.create{
+    height: 400px;
+    width: 400px;
+    background-color: rgb(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    border: 3px solid rgb(255, 255, 255,0.3);
+}
+.signup{
+    height: 60px;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-bottom: 0.5px solid white;
+    margin-bottom: 10px;
+}
+.signup form{
+    width: 48%;
+}
+.category{
+    width: 100%;
+}
