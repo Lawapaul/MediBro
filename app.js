@@ -45,7 +45,7 @@ app.all('*',(req,res)=>{
 
 app.use((err, req, res, next) => {
     let { status = 500, message = "Something went Wrong" } = err;
-    res.status(status).render("error", { status, message });
+    res.status(status).render("error", { status, message});
 });
 
 app.listen(8081, () => {

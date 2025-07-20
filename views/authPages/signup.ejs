@@ -1,9 +1,51 @@
 <% layout('authPages/layouts/boilerplate') %>
-<div class="create">
-    <% if(type == 'patient'){ %>
-        <h1>Hello Patient</h1>
-    <% } %>
-    <% if(type == 'doctor'){ %>
-        <h1>Hello Doctor</h1>
-    <% } %>
+<div class="create d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card shadow-lg p-4" style="background: rgba(0,0,0,0.5); border-radius: 20px; max-width: 450px; width: 100%; color: white;">
+        <% if(type == 'patient'){ %>
+            <h2 class="text-center mb-3 font-monospace">Patient Registration</h2>
+            <p class="text-center mb-4" style="font-size: 1rem; color: #ccc;">Create your patient account to access health services.</p>
+            <form action="/signup?type=patient" method="post" novalidate>
+                <div class="form-group mb-3">
+                    <label for="patientName" class="mb-1">Full Name</label>
+                    <input type="text" class="form-control" id="patientName" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="patientEmail" class="mb-1">Email Address</label>
+                    <input type="email" class="form-control" id="patientEmail" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="patientAge" class="mb-1">Age</label>
+                    <input type="number" class="form-control" id="patientAge" name="age" placeholder="Enter your age" min="0" required>
+                </div>
+                <div class="form-group mb-4">
+                    <label for="patientPassword" class="mb-1">Password</label>
+                    <input type="password" class="form-control" id="patientPassword" name="password" placeholder="Create a password" required>
+                </div>
+                <button type="submit" class="btn btn-light w-100 py-2 fw-bold" style="border-radius: 20px;">Register as Patient</button>
+            </form>
+        <% } %>
+        <% if(type == 'doctor'){ %>
+            <h2 class="text-center mb-3 font-monospace">Doctor Registration</h2>
+            <p class="text-center mb-4" style="font-size: 1rem; color: #ccc;">Join as a doctor to help patients and manage appointments.</p>
+            <form action="/signup?type=doctor" method="post" novalidate>
+                <div class="form-group mb-3">
+                    <label for="doctorName" class="mb-1">Full Name</label>
+                    <input type="text" class="form-control" id="doctorName" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="doctorEmail" class="mb-1">Email Address</label>
+                    <input type="email" class="form-control" id="doctorEmail" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="doctorSpecialization" class="mb-1">Specialization</label>
+                    <input type="text" class="form-control" id="doctorSpecialization" name="specialization" placeholder="e.g. Cardiologist, Neurologist" required>
+                </div>
+                <div class="form-group mb-4">
+                    <label for="doctorPassword" class="mb-1">Password</label>
+                    <input type="password" class="form-control" id="doctorPassword" name="password" placeholder="Create a password" required>
+                </div>
+                <button type="submit" class="btn btn-light w-100 py-2 fw-bold" style="border-radius: 20px;">Register as Doctor</button>
+            </form>
+        <% } %>
+    </div>
 </div>

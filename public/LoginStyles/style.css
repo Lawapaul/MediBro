@@ -45,11 +45,13 @@ body {
     justify-content: space-between;
 }
 .create{
-    height: 400px;
-    width: 400px;
+    height: auto;
+    width: auto;
+    padding: 20px 20px 20px 20px;
     background-color: rgb(0,0,0,0.5);
     backdrop-filter: blur(10px);
     border: 3px solid rgb(255, 255, 255,0.3);
+    color: white;
 }
 .signup{
     height: 60px;
@@ -65,4 +67,20 @@ body {
 }
 .category{
     width: 100%;
+}
+.insideBox{
+    color: white;
+    width: 400px;
+    height: 80px;
+    background-color: rgb(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    border: 3px solid rgb(255, 255, 255,0.3);
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    padding-left: 20px;
+}
+
+.create input[type="number"],input[type="text"],input[type="email"]{
+    background: transparent;
 }
