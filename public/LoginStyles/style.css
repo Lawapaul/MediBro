@@ -55,16 +55,16 @@ body {
 }
 .signup{
     height: 60px;
-    display: flex;
     width: 100%;
-    flex-wrap: wrap;
+    display: flex;
     justify-content: space-between;
-    border-bottom: 0.5px solid white;
-    margin-bottom: 10px;
 }
-.signup form{
+.signup a{
+    height: 40px;
     width: 48%;
+    border-radius: 10px;
 }
+
 .category{
     width: 100%;
 }

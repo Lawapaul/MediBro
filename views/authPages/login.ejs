@@ -1,14 +1,10 @@
 <% layout('authPages/layouts/boilerplate') %>
 <div class="loginBox">
     <h1 class="text-center font-monospace mb-4">Sign up</h1>
-        <div class="signup">
-            <form action="/signup?type=doctor" method="post">
-                <button class="btn btn-light category">Doctor</button>
-            </form>
-            <form action="/signup?type=patient" method="post">
-                <button class="btn btn-light category">Patient</button>
-            </form>
-        </div>
+    <div class="signup">
+        <a href="/signup?type=doctor" class="btn btn-light category">Doctor</a>
+        <a href="/signup?type=patient" class="btn btn-light category">Patient</a>
+    </div>
     <h1 class="font-monospace text-center mb-4">Log in</h1>
     <form class="needs-validation" novalidate>
         <div class="form-group">
@@ -26,7 +22,7 @@
         <div class="links">
             <p><a href="/forgot" style="font-size: 0.8rem;" class="text-white">Forgot Password?</a></p>
         </div>
-        <button type="submit" class="btn btn-light w-100 mb-4">Submit</button>
+        <button type="submit" class="btn btn-light w-100 mb-4" style="border-radius: 10px;">Submit</button>
         
     </form>
 </div>
