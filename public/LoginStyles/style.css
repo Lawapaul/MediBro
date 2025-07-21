@@ -84,3 +84,13 @@ body {
 .create input[type="number"],input[type="text"],input[type="email"]{
     background: transparent;
 }
+.type{
+    height: 50px;
+    border-radius: 20px;
+    background: transparent;
+    color: white;
+    font-size: 0.9rem;
+    padding-left: 10px;
+    opacity: 0.6;
+    border: 0.5px solid white;
+}

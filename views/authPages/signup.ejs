@@ -6,6 +6,10 @@
             <p class="text-center mb-4" style="font-size: 1rem; color: #ccc;">Create your patient account to access health services.</p>
             <form action="/signup?type=patient" method="post" novalidate>
                 <div class="form-group mb-3">
+                    <label for="patientUsername" class="mb-1">Username</label>
+                    <input type="text" class="form-control" id="patientUsername" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group mb-3">
                     <label for="patientName" class="mb-1">Full Name</label>
                     <input type="text" class="form-control" id="patientName" name="name" placeholder="Enter your name" required>
                 </div>
@@ -31,6 +35,10 @@
                 <div class="form-group mb-3">
                     <label for="doctorName" class="mb-1">Full Name</label>
                     <input type="text" class="form-control" id="doctorName" name="name" placeholder="Enter your name" required>
+                </div>
+                 <div class="form-group mb-3">
+                    <label for="doctorUsername" class="mb-1">Username</label>
+                    <input type="text" class="form-control" id="doctorUsername" name="username" placeholder="Enter your username" required>
                 </div>
                 <div class="form-group mb-3">
                     <label for="doctorEmail" class="mb-1">Email Address</label>

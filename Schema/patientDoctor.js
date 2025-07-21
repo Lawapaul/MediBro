@@ -20,6 +20,10 @@ const patientSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
+    },
+    username:{
+        type: String,
+        required: true,
     }
 })
 
@@ -27,6 +31,10 @@ const doctorSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
+    },
+    username:{
+        type: String,
+        required: true,
     },
     age: {
         type: Number,

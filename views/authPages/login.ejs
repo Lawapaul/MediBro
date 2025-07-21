@@ -6,12 +6,19 @@
         <a href="/signup?type=patient" class="btn btn-light category">Patient</a>
     </div>
     <h1 class="font-monospace text-center mb-4">Log in</h1>
-    <form class="needs-validation" novalidate>
+    <form class="needs-validation" novalidate method="POST" action="/login">
         <div class="form-group">
             <input type="text" class="form-control" id="usernameInput" placeholder="Enter username" name="username" required >
             <div class="invalid-feedback">
                 Please choose a username.
             </div>
+        </div>
+        <div class="form-group">
+        <select class="form-select w-100 type" aria-label="Default select example" name="userType">
+            <option selected>Select Category</option>
+            <option value="doctor">Doctor</option>
+            <option value="patient">Patient</option>
+        </select>
         </div>
         <div class="form-group">
             <input type="password" class="form-control text-white" id="passwordInput" placeholder="Enter Password" name="password" required >
