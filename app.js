@@ -10,7 +10,7 @@ const schema = require("./Schema/patientDoctor");
 const LocalStrategy = require('passport-local').Strategy;
 const flash=require('connect-flash');
 const wrapAsync = require("./methods/wrapAsync");
-
+const nodemailer = require('./methods/nodemailer');
 app.use(cookieParser());
 
 const sessionConfig = session({
@@ -96,8 +96,25 @@ app.post("/signup", wrapAsync(async(req, res) => {
             username: req.body.username,
         })
         await schema.patient.register(newPatient,req.body.password);
-        req.flash("success", "You have successfully logged in as Patient");
-        return res.redirect("/home");
+        req.flash("success", `🎉 Welcome to MediBro, ${newPatient.name}! Your patient account has been created. Enjoy personalized health services and real-time care.`);
+        await nodemailer.sendMail(
+            "customdomain.08@gmail.com",
+            req.body.email,
+            "Welcome to MediBro!",
+            `Hello ${newPatient.name},\n\nWelcome to MediBro! We're excited to have you as a patient.\n\nBest wishes,\nThe MediBro Team`,
+            `<div style='font-family:sans-serif;max-width:500px;margin:auto;background:#f9f9f9;border-radius:12px;padding:32px 24px;box-shadow:0 2px 12px #0001;'>
+                <h2 style='color:#2b7a78;'>Welcome to <span style='color:#ffb400;'>MediBro</span>!</h2>
+                <p>Hi <b>${newPatient.name}</b>,</p>
+                <p>We're thrilled to have you join our patient community.<br>
+                Enjoy personalized health services and real-time care, all at your fingertips.</p>
+                <hr style='border:none;border-top:1px solid #eee;margin:24px 0;'>
+                <p style='color:#888;font-size:0.95em;'>Best wishes,<br>The MediBro Team</p>
+            </div>`
+        );
+        return req.login(newPatient, function(err) {
+            if (err) { return next(err); }
+            return res.redirect('/home');
+        });
     } 
     if(type==="doctor"){
         const newDoctor = new schema.doctor({
@@ -108,8 +125,25 @@ app.post("/signup", wrapAsync(async(req, res) => {
             username: req.body.username,
         })
         await schema.doctor.register(newDoctor,req.body.password);
-        req.flash("success", "You have successfully logged in as Doctor");
-        return res.redirect("/home");
+        req.flash("success", `👨‍⚕️ Welcome to MediBro, Dr. ${newDoctor.name}! Your doctor account has been created. Start helping patients and managing appointments.`);
+        await nodemailer.sendMail(
+            "customdomain.08@gmail.com",
+            req.body.email,
+            "Welcome to MediBro!",
+            `Hello Dr. ${newDoctor.name},\n\nWelcome to MediBro! Thank you for joining as a doctor.\n\nBest wishes,\nThe MediBro Team`,
+            `<div style='font-family:sans-serif;max-width:500px;margin:auto;background:#f9f9f9;border-radius:12px;padding:32px 24px;box-shadow:0 2px 12px #0001;'>
+                <h2 style='color:#2b7a78;'>Welcome to <span style='color:#ffb400;'>MediBro</span>!</h2>
+                <p>Hi <b>Dr. ${newDoctor.name}</b>,</p>
+                <p>Thank you for joining MediBro as a doctor.<br>
+                Start helping patients and managing appointments with ease.</p>
+                <hr style='border:none;border-top:1px solid #eee;margin:24px 0;'>
+                <p style='color:#888;font-size:0.95em;'>Best wishes,<br>The MediBro Team</p>
+            </div>`
+        );
+        return req.login(newDoctor, function(err) {
+            if (err) { return next(err); }
+            return res.redirect('/home');
+        });
     }
     req.flash("error", "Something went wrong. Try again");
     return res.redirect('/login');
