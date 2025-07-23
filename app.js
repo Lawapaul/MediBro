@@ -151,7 +151,7 @@ app.post("/signup", wrapAsync(async(req, res) => {
 }));
 app.get("/home",(req,res)=>{
     if(req.isAuthenticated()){
-        return res.send("Welcome to Home");
+        return res.render('./Home/home.ejs');
     }
     req.flash("error","You are not logged In");
     return res.redirect("/login");
