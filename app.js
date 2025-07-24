@@ -11,6 +11,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const flash=require('connect-flash');
 const wrapAsync = require("./methods/wrapAsync");
 const nodemailer = require('./methods/nodemailer');
+const isAuthenticated = require("./methods/Authenticated");
 app.use(cookieParser());
 
 const sessionConfig = session({
@@ -149,12 +150,8 @@ app.post("/signup", wrapAsync(async(req, res) => {
     return res.redirect('/login');
     
 }));
-app.get("/home",(req,res)=>{
-    if(req.isAuthenticated()){
-        return res.render('./Home/home.ejs');
-    }
-    req.flash("error","You are not logged In");
-    return res.redirect("/login");
+app.get("/home",isAuthenticated,(req,res)=>{
+    return res.render('./Home/home.ejs');
 });
 
 app.get("/Support",(req,res)=>{
