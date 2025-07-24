@@ -156,6 +156,10 @@ app.get("/home",(req,res)=>{
     req.flash("error","You are not logged In");
     return res.redirect("/login");
 });
+
+app.get("/Support",(req,res)=>{
+    res.render("./Support/support.ejs");
+})
 app.all('*',(req,res)=>{
     throw new expressError(404,"Page not Found");
 })
