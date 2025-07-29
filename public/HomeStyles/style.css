@@ -70,6 +70,9 @@ body {
 }
 .content{
     width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     height: 70% auto;
     background: rgba(30, 30, 30, 0.55);
     border-radius: 15px;
@@ -96,4 +99,67 @@ body {
 }
 .individual{
     width: 100%;
+}
+.displayContact{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 30px;
+    color: white;
+    height: inherit;
+    width: 50%;
+    background: transparent;
+    justify-content: center;
+    align-items: start;
+}
+.header{
+    height: 20%;
+    margin-left: 20px;
+}
+.contactInformation{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+.eachInfo{
+    width: 90%;
+    height: 18%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    margin-bottom: 15px;
+
+}
+.eachInfo i{
+    font-size: 1.5rem;
+    height: 60%;
+    width: 13%;
+    padding-top: 10px;
+     background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border-radius: 10px;
+}
+.text{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 80%;
+    height: 40px;
+}
+.text p{
+    width: 100%;
+}
+.logos i{
+    font-size: 1.5rem;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.logos i:hover{
+    opacity: 0.5;
+}
+.logos a {
+    text-decoration: none !important;
+    color: white !important;
 }
