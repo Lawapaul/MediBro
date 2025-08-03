@@ -163,3 +163,42 @@ body {
     text-decoration: none !important;
     color: white !important;
 }
+
+@media (max-width: 1137px){
+    .content{
+        width: 85%;
+    }
+}
+@media (max-width: 756px){
+    .content{
+        max-width: 95%;
+    }
+}
+@media(max-width: 681px){
+    .navbarS{
+        margin-bottom: 200px;
+    }
+    .content{
+        height: auto;
+    }
+    .sendMessage{
+        width: 100%;
+    }
+    .displayContact{
+        width: 100%;
+        padding-bottom: 60px;
+    }
+}
+@media(max-width: 469px){
+    .navbarS{
+        margin-bottom: 200px;
+    }
+}
+@media(max-width: 400px){
+    .navbarS{
+        margin-bottom: 250px;
+    }
+    .contactInformation{
+        padding-top: 20px;
+    }
+}
